@@ -68,6 +68,10 @@ Al comienzo del proyecto teníamos ideas diferentes en el grupo de desarrollo, s
 
 #### 3) Diseño de la Interfaz de Usuario (Prototipo de alta fidelidad)
 
+*Prototipo de alta fidelidad, diseño en figma.*
+
+![figma1.PNG](src/imagenes/figma1.PNG)  ![figma2.PNG](src/imagenes/figma2.PNG)  ![figma3.PNG](src/imagenes/figma3.PNG)  ![figma3.PNG](src/imagenes/figma4.PNG)
+
 
 
 
