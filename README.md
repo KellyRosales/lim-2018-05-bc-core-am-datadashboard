@@ -1,5 +1,26 @@
 # PROYECTO DATADASHBOARD
 
+**Organización del grupo de trabajo**
+
+En la organización se utilizó las siguientes herramientas:
+
++ Sprint Board Manual
++ Trello (Sprint Board Digital)
++ Pair Progamming
++ Feedback entre grupo y usuario final
+
+En la organización del Sprint Board Manual, se llevó a cabo con un grupo mayor de trabajo (6 personas y 2 couches), se identificó las fases del proyecto.
+
+La organización del grupo de trabajo (2 personas), se organizó a través de un Sprint Board Digital (Trello), Lo cual poniendo horarios y metas, se avanzó con mayor claridad.
+![Trello1](src/imagenes/trello1.jpeg)
+
+El uso del Pair Progamming, nos ayudó a indentificar y solucionar dudas tecnologicas y compartir ideas.
+
+El feedback, nos ayuda a tener más claro la interactividad, la sencillez de la interfaz, soluciones y desaciertos de los prototipos de baja fidelidad.
+
+
+
+
 ## USER EXPERIENCE DESIGN
 
 #### 1)User Experience Design
