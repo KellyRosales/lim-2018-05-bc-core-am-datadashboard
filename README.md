@@ -19,9 +19,8 @@ El uso del Pair Progamming, nos ayudó a indentificar y solucionar dudas tecnolo
 El feedback, nos ayuda a tener más claro la interactividad, la sencillez de la interfaz, soluciones y desaciertos de los prototipos de baja fidelidad.
 
 
-
-
 ## USER EXPERIENCE DESIGN
+
 
 #### 1)User Experience Design
 
@@ -70,7 +69,7 @@ Al comienzo del proyecto teníamos ideas diferentes en el grupo de desarrollo, s
 
 *Prototipo de alta fidelidad, diseño en figma.*
 
-![figma1.PNG](src/imagenes/figma1.PNG)  ![figma2.PNG](src/imagenes/figma2.PNG)  ![figma3.PNG](src/imagenes/figma3.PNG)  ![figma3.PNG](src/imagenes/figma4.PNG)
+![Figma1.0.PNG](src/imagenes/Figma1.0.PNG)  ![Figma2.0.PNG](src/imagenes/Figma2.0.PNG)  ![Figma3.0.PNG](src/imagenes/Figma3.0.PNG)  ![Figma4.0.PNG](src/imagenes/Figma4.0.PNG)
 
 
 
