@@ -24,7 +24,7 @@
 
 /* presentational */
 header { 
-    font:1.0em sans-serif;
+    font:1.3em sans-serif;
    }
 
 nav a { 
@@ -72,6 +72,7 @@ body{
 
 div{
     background: black;
+    align-content: center;
   }
 
 img{
