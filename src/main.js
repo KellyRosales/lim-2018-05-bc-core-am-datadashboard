@@ -28,6 +28,7 @@ const addStudents =()=>{
     }
 }
 
+<<<<<<< HEAD
 //para extraer los ejercicios
 const exercisesContainer = document.getElementById('container-exercises');
 const exercisesButton =document.getElementById('btn-exercises');
@@ -60,3 +61,93 @@ addExercises=()=>{
     //    let li=document.createElement('li');
     //  li.innerText=dataExcercises[i].
     }
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Menu desplegable
+	let menuSede=document.getElementById("Sede1");
+	let menuGeneracion=document.getElementById("Generacion1");
+    let menuCursos=document.getElementById("Cursos1");
+    let menuAlumnas=document.getElementById("Alumnas1");
+
+   	
+   //Acción al hacer click a Sede de la lista desplegable
+	document.getElementById("Sede").addEventListener("click",()=>{
+			menuSede.style.display="block";
+			menuGeneracion.style.display="none";
+			menuCursos.style.display="none";			
+			menuAlumnas.style.display="none";
+    })
+>>>>>>> b943443f3901ee2a8240429cdfee76ad2786ac58
