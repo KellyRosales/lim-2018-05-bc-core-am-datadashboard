@@ -2,18 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section>
+    <header>
+      <div>
+       <img src="imag/laboratoria.PNG" id="laboratoria" >
+      </div>  
+      <div>
+        <img src="imag/mapa.PNG" id="mapa">
+      </div>
+    </header> 
+    <div id="welcome">
+        <p ><img src="imag/ale.PNG" id= "ale"> <center><strong><br>¡Bienvenida Alejandra Ramirez!</strong><br><br> Estamos aquí para lo que necesites <br><br> El equipo de Laboratoria</center> </p>
+    </div>    
+    <div id="cuadro">
       <input id="submit-btn" type="submit" value="alumnas">
-      <input id="btn-exercises" type="submit" value="ejercicios">
-    
-      <ul id="response-container">
-      </ul>
-      <ul id="container-exercises">
-      </ul>
-    </section>         
+      <input id="btn-exercises" type="submit" value="ejercicios">  
+      <ul id="container-exercises"> </ul>
+      <ul id="response-container"></ul>
+    </div>       
+    <footer id= "final">
+      <p><strong>Hagamos la industria Tech más diversa</strong></p>
+    </footer>  
     <script src="main.js"></script>
   </body>
 </html>

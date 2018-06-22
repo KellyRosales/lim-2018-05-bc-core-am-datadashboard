@@ -1,0 +1,49 @@
+body{
+    background: rgb(138, 136, 136);
+}
+#laboratoria{
+    position: relative; 
+    width: 80.5%;
+    height: 130px;
+    left: 20%;
+    bottom: 10px;
+}
+#mapa{
+    position: relative;
+    width: 21%;
+    height:165px;
+    bottom:142px;
+    right: 7px;
+}
+
+#welcome{
+    position: relative;
+    background:rgb(255, 255, 28);
+    height: 400px;
+    width: 21%;
+    right: 7px;
+    bottom: 130px;
+}
+
+#ale{
+    position: relative;
+    width: 50%;
+    left: 20%;
+    top: 15px;
+}
+
+#cuadro{
+    position: relative;
+    background:orange;
+    width: 60%;
+    left: 25%;
+    bottom: 300px;
+}
+
+#final {
+    position: relative;
+    background: rgb(245, 245, 245);
+    bottom: 160px;
+    height: 30px;
+    text-align: center;
+}
