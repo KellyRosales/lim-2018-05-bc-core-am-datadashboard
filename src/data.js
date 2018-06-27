@@ -12,17 +12,7 @@ window.computerUsersStats = (users, progress, courses) => {
     }
 
 
-    for (let i in progress) {
-        const exercesisProgress = Object.keys(progress);
-        let exercisesDocument = document.createElement('li');
-        exercisesDocument.innerHTML += exercesisProgress[i]['intro']['units']['02-variables-and-data-types']['parts']['06-exercises']['completed'];
-        exercisesContainer.appendChild(exercisesDocument);
-    }
-
 }
-
-
-
 window.sortUsers = (users, orderBy, orderDirection) => {
 
 }
@@ -32,3 +22,14 @@ window.filterUser = (users, search) => {
 window.processCohortData = (options) => {
 
 }
+window.generationCohort = (dataCohort) => {
+    if (generationContainer.innerHTML === ""){
+        for( let i in dataCohort){
+            let generationDocument = document.createElement('li');
+            generationDocument.innerText= dataCohort[i].id;
+            generationContainer.appendChild(generationDocument);
+        }
+    }
+
+}
+

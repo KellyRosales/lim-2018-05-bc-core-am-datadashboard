@@ -15,6 +15,17 @@ const studentsContainer = document.getElementById('students-container');
 
 const exercisesContainer = document.getElementById('exercises-container');
 
+
+getGeneration = () => {
+    getData('../data/cohorts.json', (err, dataCohorts) => {
+        generationCohort(dataCohorts);
+    });
+}
+
+const resultadosGeneration= document.getElementById('mostrar-generation');
+resultadosGeneration.addEventListener('click',getGeneration);
+const generationContainer = document.getElementById('generation-container');
+
 // Función para hacer las conexiones  XHR 
 const getData = (url, callback) => {
     let xhr = new XMLHttpRequest();
@@ -27,3 +38,4 @@ const getData = (url, callback) => {
     xhr.open('GET', url, true);
     xhr.send();
 }
+
