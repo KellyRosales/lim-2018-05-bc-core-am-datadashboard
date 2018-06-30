@@ -22,6 +22,7 @@ getGeneration = () => {
     });
 }
 
+
 const resultadosGeneration= document.getElementById('mostrar-generation');
 resultadosGeneration.addEventListener('click',getGeneration);
 const generationContainer = document.getElementById('generation-container');
