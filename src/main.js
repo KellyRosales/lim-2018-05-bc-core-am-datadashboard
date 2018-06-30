@@ -26,6 +26,7 @@ const resultadosGeneration= document.getElementById('mostrar-generation');
 resultadosGeneration.addEventListener('click',getGeneration);
 const generationContainer = document.getElementById('generation-container');
 
+
 // Función para hacer las conexiones  XHR 
 const getData = (url, callback) => {
     let xhr = new XMLHttpRequest();
