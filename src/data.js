@@ -11,130 +11,120 @@ window.computerUsersStats = (users, progress, courses) => {
             }
         }
 
+
         // Extracción de ejercicios
-        let completedExercises = [];
-        let arrExercises = []
+
         for (let i in users) {
             const courses = Object.keys(progress[users[i].id]); // return: "intro"
+            
+            let numberExercisesCompleted = 0;
+            let numberExercisesPresent = 0;
             let percentExercises = 0;
 
             for (let course of courses) {
                 const objcourse = progress[users[i].id][course]['units'];
-                const arrayOfSections = Object.keys(objcourse); //return: ["01-introduction", "03-ux-design", "02-variables-and-data-types"]
+                const arraySections = Object.keys(objcourse); //return: ["01-introduction", "03-ux-design", "02-variables-and-data-types"]
 
-                for (let section of arrayOfSections) {
-                    const objOfSubSecction = progress[users[i].id][course]['units'][section]['parts'];
-                    const arrayOfSubSection = Object.keys(objOfSubSecction)  //return: ["01-variables", "02-self-learning-MDN", "03-comments", "06-exercises", "00-values-data-types-and-operators", "05-quiz", "04-guided-exercises"]
+                for (let section of arraySections) {
+                    const objSubSecction = progress[users[i].id][course]['units'][section]['parts'];
+                    const arraySubSection = Object.keys(objSubSecction)  //return: ["01-variables", "02-self-learning-MDN", "03-comments", "06-exercises", "00-values-data-types-and-operators", "05-quiz", "04-guided-exercises"]
 
-                    for (let subSection of arrayOfSubSection) {
+                    for (let subSection of arraySubSection) {
 
                         if (subSection === "06-exercises") {
-                            const objectOfExercises = progress[users[i].id][course]['units'][section]['parts'][subSection]['completed'];
-                            completedExercises.push(objectOfExercises); // 0 , 1 , 1 , 0
+                            const objectExercises = progress[users[i].id][course]['units'][section]['parts'][subSection]['completed']; // 0 , 1 , 1 , 0
 
-                            //total de ejercicios autocorregidos
-                            const objectNameOfExercises = progress[users[i].id][course]['units'][section]['parts'][subSection]['exercises']
-                            const arrayNameOfExercises = Object.keys(objectNameOfExercises); // ["01-coin-convert", "02-restaurant-bill"]
-                            const numberNameExercises = arrayNameOfExercises.length;
+                            // total: Número total de ejercicios autocorregidos presentes en cursos del cohort.      
+                            const objectNameExercises = progress[users[i].id][course]['units'][section]['parts'][subSection]['exercises']
+                            const arrayNameExercises = Object.keys(objectNameExercises); // ["01-coin-convert", "02-restaurant-bill"]
+                            const numberExercisesPresent = arrayNameExercises.length;
+                            let totalExercisesPresent = numberExercisesPresent;
 
-                            //porcentaje de ejercicios completados 
-                            percentExercises += objectOfExercises * 100;
+                            objectExercises === parseInt(0) || objectExercises === parseInt(1) || objectExercises === parseInt(0.5) ? (numberExercisesCompleted = objectExercises * 2) : "error"
 
+                            percentExercises += objectExercises * 100;
                         }
+
                     }
                 }
             }
-            //Imprimiendo
-            let generetionExercises = document.createElement('li');
-            generetionExercises.innerText = percentExercises;
-            exercisesContainer.appendChild(generetionExercises);
+            // completed: Número de ejercicios autocorregidos completados por el usuario.
+            let totalExercisesCompleted = numberExercisesCompleted;
+            // percent: Porcentaje de ejercicios autocorregidos completados.
+            let percentExercisesCompleted = percentExercises;
         }
-        // completed: Número de ejercicios completados por el usuario.
-        completedExercises.map(elem => {
-            var num = elem * 2
-            arrExercises.push(num);
-        })
-
-        // Extracción de lecturas (reads)
-       
+        //Imprimiendo
+        // let generetionExercises = document.createElement('li');
+        // generetionExercises.innerText = percentExercises;
+        // exercisesContainer.appendChild(generetionExercises);
+   
+        
+        // Extracción de lecturas (reads)       
         for (let i in users) {
             const courses = Object.keys(progress[users[i].id]); // return: "intro"
-           
-            let readCounter = 0;
-            let numberReadCompleted = 0;           
-            let percentReadsCompleted = 0;
+
+            let numberReadPresent = 0;
+            let numberReadCompleted = 0;
 
             for (let course of courses) {
                 const objcourse = progress[users[i].id][course]['units'];
-                const arrayOfSections = Object.keys(objcourse); //return: ["01-introduction", "03-ux-design", "02-variables-and-data-types"]
+                const arraySections = Object.keys(objcourse); //return: ["01-introduction", "03-ux-design", "02-variables-and-data-types"]
 
-                for (let section of arrayOfSections) {
-                    const objOfSubSecction = progress[users[i].id][course]['units'][section]['parts'];
-                    const arrayOfSubSection = Object.keys(objOfSubSecction)  //return: ["01-variables", "02-self-learning-MDN", "03-comments", "06-exercises", "00-values-data-types-and-operators", "05-quiz", "04-guided-exercises"]
+                for (let section of arraySections) {
+                    const objSubSecction = progress[users[i].id][course]['units'][section]['parts'];
+                    const arraySubSection = Object.keys(objSubSecction)  //return: ["01-variables", "02-self-learning-MDN", "03-comments", "06-exercises", "00-values-data-types-and-operators", "05-quiz", "04-guided-exercises"]
 
-                    for (let subSection of arrayOfSubSection) {
-                        const objectOfParts = progress[users[i].id][course]['units'][section]['parts'][subSection]['type'] //return: quiz, read, read
+                    for (let subSection of arraySubSection) {
+                        const objectParts = progress[users[i].id][course]['units'][section]['parts'][subSection]['type'] //return: quiz, read, read
                         const objectReadCompleted = progress[users[i].id][course]['units'][section]['parts'][subSection]['completed']
 
-                        if (objectOfParts === "read") {
-                            readCounter += 1;
-
+                        if (objectParts === "read") {
+                            numberReadPresent += 1;
                         }
 
-                        objectOfParts === "read" && objectReadCompleted === parseInt(1) ? (numberReadCompleted += 1) : "error"
-
-                        // percent: Porcentaje de lecturas completadas.
-                        // objectOfParts === "read" && objectReadCompleted === parseInt(1) ? (percentReadsCompleted = (readsCompleted / readsTotal) * 100) : "error"
-                        // console.log(percentReadsCompleted)
-
+                        objectParts === "read" && objectReadCompleted === parseInt(1) ? (numberReadCompleted += 1) : "error"
                     }
                 }
             }
             // total: Número total de lecturas presentes en cursos del cohort.
-            let readsTotal = readCounter; //11, 11, 11, 11 
+            let readsTotal = numberReadPresent; //11, 11, 11, 11 
 
             //completed: Número de lecturas completadas por el usuario.
             let readsCompleted = numberReadCompleted; //6, 11,11,8 
-        
-            // function functionReadsCompleted(objectOfParts, objectReadCompleted) {
-            // functionReadsCompleted(objectOfParts, objectReadCompleted) 
 
+            // percent: Porcentaje de lecturas completadas.
+            let readsPercent = (numberReadCompleted / numberReadPresent) * 100;
         }
 
-        //Extracción de quizzes
-      
-
+        //Extracción de quizzes    
         for (let i in users) {
             const courses = Object.keys(progress[users[i].id]); // return: "intro"
 
             let quizCounter = 0;
             let numberQuizCompleted = 0;
-            let sumQuizScore = 0; 
+            let sumQuizScore = 0;
 
             for (let course of courses) {
                 const objcourse = progress[users[i].id][course]['units'];
-                const arrayOfSections = Object.keys(objcourse); //return: ["01-introduction", "03-ux-design", "02-variables-and-data-types"]
+                const arraySections = Object.keys(objcourse); //return: ["01-introduction", "03-ux-design", "02-variables-and-data-types"]
 
-                for (let section of arrayOfSections) {
-                    const objOfSubSecction = progress[users[i].id][course]['units'][section]['parts'];
-                    const arrayOfSubSection = Object.keys(objOfSubSecction)  //return: ["01-variables", "02-self-learning-MDN", "03-comments", "06-exercises", "00-values-data-types-and-operators", "05-quiz", "04-guided-exercises"]
+                for (let section of arraySections) {
+                    const objSubSecction = progress[users[i].id][course]['units'][section]['parts'];
+                    const arraySubSection = Object.keys(objSubSecction)  //return: ["01-variables", "02-self-learning-MDN", "03-comments", "06-exercises", "00-values-data-types-and-operators", "05-quiz", "04-guided-exercises"]
 
-                    for (let subSection of arrayOfSubSection) {
-                        const objectOfParts = progress[users[i].id][course]['units'][section]['parts'][subSection]['type'] //return: quiz, read, read
+                    for (let subSection of arraySubSection) {
+                        const objectParts = progress[users[i].id][course]['units'][section]['parts'][subSection]['type'] //return: quiz, read, read
                         const objectQuizzCompleted = progress[users[i].id][course]['units'][section]['parts'][subSection]['completed']
                         const objectQuizzScore = progress[users[i].id][course]['units'][section]['parts'][subSection]['score']
 
-                        if (objectOfParts === "quiz") {
+                        if (objectParts === "quiz") {
                             quizCounter += 1;
-                           
+
                         }
-                        objectOfParts === "quiz" && objectQuizzCompleted === parseInt(1) ? (numberQuizCompleted += 1) : "error"
+                        objectParts === "quiz" && objectQuizzCompleted === parseInt(1) ? (numberQuizCompleted += 1) : "error"
 
-                        // objectOfParts === "quiz" && objectQuizzCompleted === parseInt(1) ? 
+                        objectParts === "quiz" && objectQuizzCompleted === parseInt(1) ? (sumQuizScore += objectQuizzScore) : "error"
 
-                        objectOfParts === "quiz" && objectQuizzCompleted === parseInt(1) ? (sumQuizScore += objectQuizzScore) : "error"
-
-                        // objectOfParts === "quiz" && objectQuizzCompleted === parseInt(1) ? (promQuizScore += total de suma /numero de elem) : "error"
                     }
                 }
             }
@@ -143,18 +133,29 @@ window.computerUsersStats = (users, progress, courses) => {
 
             // completed: Número de quizzes completadas por el usuario
             let quizCompleted = numberQuizCompleted; // 2,3,3, 1
-           
+
             // percent: Porcentaje de quizzes completadas.
+            let percentQuiz = quizCompleted / quizTotal;
 
             // scoreSum: Suma de todas las puntuaciones (score) de los quizzes completados.
-            let scoreSum = sumQuizScore ; // 57, 280,190,90
-           
-             // scoreAvg: Promedio de puntuaciones en quizzes completados
-            //  let scoreAvg = 
+            let scoreSum = sumQuizScore; // 57, 280,190,90
 
+            // scoreAvg: Promedio de puntuaciones en quizzes completados
+            let scoreAvgQuiz = scoreSum / quizTotal;
         }
-    }
 
+
+        // percent: Número entero entre 0 y 100 que indica el porcentaje de completitud general del usuario con respecto a todos los cursos asignados a su cohort.
+
+        
+            // sumaCompleted = totalExercisesCompleted + readsCompleted + quizCompleted;
+
+            // sumTotal = totalExercisesPresent + readsTotal + quizTotal;
+
+            // percentCompletedGeneral = (sumaCompleted / sumTotal) * 100;
+
+        
+    }
 
     // let usersWithStats = {
     //     user {
@@ -181,7 +182,6 @@ window.computerUsersStats = (users, progress, courses) => {
     //     }
     // }
 }
-
 
 window.sortUsers = (users, orderBy, orderDirection) => {
 
