@@ -10,6 +10,7 @@ body{
     list-style: none;
     height: 100%;
     width: 100%;
+    color: #333333;
 }
 /* MENU*/
 .menu{
@@ -47,20 +48,22 @@ body{
     background: #FFE521;
 }
 .xn-title{
-    height: 10vh;
+    height: 7vh;
     display: block;
     text-decoration: none;
     color: white;
     line-height: 5vh;
     background: black;
+    text-align: center;
 }
 
 .box{
-    height: 10vh;
+    height: 7vh;
     display: block;
     text-decoration: none;
     color: #333333;
     line-height: 5vh;
+    background: #FFE521;
 }
 .box :hover{
     background:  white;
@@ -72,13 +75,14 @@ body{
     position: fixed;
     list-style: none;
     background: black;
+
 }
 .login{
     display: inline-block;
     margin-left: 58vh;
 }
-#output{
-    color: black;
+#output{ 
+    color: #333333;
     background: #FFE521;
     text-decoration: none;
     margin-bottom: 1vh;
