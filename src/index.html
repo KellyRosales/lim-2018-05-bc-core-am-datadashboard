@@ -1,32 +1,137 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <div>
-       <img src="imag/laboratoria.PNG" id="laboratoria" >
-      </div>  
-      <div>
-        <img src="imag/mapa.PNG" id="mapa">
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/fontello.css"> -->
+  <title>My Data Dashboar</title>
+</head>
+
+<body>
+  <div class="container" style="width:100%; height:100%;">
+    <div class="menu">
+      <ul class="perfil">
+        <li class="xn-profile">
+          <h3>Data Dashboard</h3>
+        </li>
+        <li>
+          <div class="profile-user">
+            <div class="profile-image">
+              <img src="imag/Ale.png" alt="Alejandra Ramirez">
+            </div>
+            <div class="profile-data">
+              <font style="vertical-align: inherit" class="icon-facebook">Alejandra Ramirez</font>
+            </div>
+            <div class="profile-data-title">
+              <font style="vertical-align: inherit">Trainning Manager</font>
+            </div>
+          </div>
+        </li>
+        <li class="welcome-message">
+          <font style="vertical-align: inherit">
+            <p>¡Bienvenida!
+              <br> Estamos aquí para lo que necesites
+              <br> El equipo de Laboratoria </p>
+          </font>
+        </li>
+        <li class="xn-title">
+          <h3 class="icon-navegacion">SEDES</h3>
+        </li>
+        <li id="Lim" class="button">
+          <a  class="box" href="#">
+            <h3 class="icon-sede">Lima</h3>
+            <!-- <div class="cuadro">
+              <button id="mostrar-students">Mostrar Datos</button>
+              <ul id="students-container"></ul>
+              <ul id="exercises-container"></ul>
+            </div>
+            <div class="cuadro">
+              <button id="mostrar-generation">Mostrar generaciones</button>
+              <ul id="generation-container"></ul>
+            </div> -->
+          </a>
+        </li>
+        <li class="button">
+          <a class="box" href="#">
+            <h3 class="icon-sede">Sao Paulo</h3>
+          </a>
+        </li>
+        <li class="button">
+          <a class="box" href="#">
+            <h3 class="icon-sede">Ciudad de México</h3>
+          </a>
+        </li>
+        <li class="button">
+          <a class="box" href="#">
+            <h3 class="icon-sede">Guadalajara</h3>
+          </a>
+        </li>
+        <li class="button">
+          <a class="box" href="#">
+            <h3 class="icon-sede">Santiago</h3>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="page-content">
+      <ul class=" header">
+        <li class="login">
+          <img src="imag/laboratoriaBlack.PNG">
+        </li>
+        <li class="login">
+          <a href="https://lms.laboratoria.la/settings">
+            <h3 id="output" class="icon-salida">cerrar sesión</h3>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="page-content-wrap">
+      <!-- <div class="row">
+        <div class="column">
+          <p>Total de alumnas</p>
+          //gitf de campana, reloj y calendario
+          <img "insertar icono">
+        </div>
+        <div class="column"> otro
+        </div>
+      </div> -->
+      <div class="page-content-filters">
+        <!-- <div class="button-row">
+          //boton de busqueda //gift de busqueda
+        </div> -->
+        <div>
+          <table>
+            <tr>
+              <th>Estudiante</th>
+              <th>Ejercicios completados (%)</th>
+              <th>Quizes completados(%)</th>
+              <th>Lecturas completadas (%)</th>
+              <th>Completitud general (%)</th>
+            </tr>
+            <tr>
+              <th>//Tablero
+
+              </th>
+            </tr>
+          </table>
+        </div>
       </div>
-    </header> 
-    <div id="welcome">
-        <p ><img src="imag/ale.PNG" id= "ale"> <center><strong><br>¡Bienvenida Alejandra Ramirez!</strong><br><br> Estamos aquí para lo que necesites <br><br> El equipo de Laboratoria</center> </p>
-    </div>    
-    <div id="cuadro">
-      <input id="submit-btn" type="submit" value="alumnas">
-      <input id="btn-exercises" type="submit" value="ejercicios">  
-      <ul id="container-exercises"> </ul>
-      <ul id="response-container"></ul>
-    </div>       
-    <footer id= "final">
-      <p><strong>Hagamos la industria Tech más diversa</strong></p>
-    </footer>  
-    <script src="main.js"></script>
-  </body>
+    </div>
+    <!-- <div class="page-footer">
+      <footer>
+        <p>Hagamos la industria TECH más diversa</p>
+        //gitf de like y dislike
+      </footer> -->
+  </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+
+</body>
+
 </html>
