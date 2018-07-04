@@ -1,4 +1,4 @@
-//En este caso puedes usar main.js para todo tu código que tenga que ver con mostrar los datos en la pantalla,
+// En este caso puedes usar main.js para todo tu código que tenga que ver con mostrar los datos en la pantalla,
 
 getFunctions = () => {
     getData('../data/cohorts/lim-2018-03-pre-core-pw/users.json', (err, dataUsers) => {
@@ -9,18 +9,11 @@ getFunctions = () => {
         });
     });
 }
-
-
-
 const resultadosUser = document.getElementById('mostrar-students');
-// resultadosUser.addEventListener('click', getFunctions);
+resultadosUser.addEventListener('click', getFunctions);
 const studentsContainer = document.getElementById('students-container');
 
-
-
 const exercisesContainer = document.getElementById('exercises-container');
-const readsContainer = document.getElementById('reads-container');
-const quizesContainer =document.getElementById('quizes-container');
 
 
 getGeneration = () => {
@@ -31,7 +24,7 @@ getGeneration = () => {
 
 
 const resultadosGeneration= document.getElementById('mostrar-generation');
-// resultadosGeneration.addEventListener('click',getGeneration);
+resultadosGeneration.addEventListener('click',getGeneration);
 const generationContainer = document.getElementById('generation-container');
 
 
@@ -47,4 +40,3 @@ const getData = (url, callback) => {
     xhr.open('GET', url, true);
     xhr.send();
 }
-
