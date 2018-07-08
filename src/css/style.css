@@ -64,33 +64,38 @@ body{
     color: #333333;
     line-height: 5vh;
     background: #FFE521;
+    outline: 1px solid #333333;;
 }
-.box :hover{
+.box:hover{
     background:  white;
 }
 /* ENCABEZADO*/
-.header{
-    left: 20%;
-    width: 80%;
-    position: fixed;
-    list-style: none;
-    background: black;
+#page-content{
+ position: fixed;
+ width: 80%;
+ height: 10%;
+ left: 20%;
+ background: black;
+}  
 
+#logo{
+    width: 15%;
+    position: fixed;
+    left: 50%;
+    top: 1%;
 }
-.login{
-    display: inline-block;
-    margin-left: 58vh;
-}
-#output{ 
+
+#output{
     color: #333333;
-    background: #FFE521;
-    text-decoration: none;
-    margin-bottom: 1vh;
+    outline: 2px solid black;
+    width: 6%;
+    left: 90%;
+    position: fixed;
+    top: 3%;
 }
 
 /*Medio del texto*/
 .page-content-wrap{
-   /* outline: 1px solid blue;  */
    background: rgb(240, 240, 240);
    position: absolute;
    left: 20%;
@@ -108,4 +113,20 @@ table{
     position: absolute;
     border-collapse: collapse;
     border-spacing: 0;
+}
+.generation{
+    outline: 2px solid rgba(143, 166, 243, 0.946);
+    background: white;
+    position: relative;
+    padding: 1%;
+    width: 50%;
+    left: 33vh;
+    top: 5vh;
+    text-align: center;
+}
+
+.students{
+    outline: 1vh solid #333333;
+    background: gold;
+
 }

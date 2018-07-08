@@ -33,63 +33,43 @@
         <li class="welcome-message">
           <font style="vertical-align: inherit">
             <p>¡Bienvenida!
-              <br> Estamos aquí para lo que necesites
-              <br> El equipo de Laboratoria </p>
+              <br> Estamos aquí para lo que necesites.
+              <br> El equipo de <br> <strong> < Laboratoria > </strong></p>
           </font>
         </li>
         <li class="xn-title">
           <h3 class="icon-navegacion">SEDES</h3>
         </li>
-        <li class="venue-list" > 
-          <a  class="box" href="#">
-            <h3 class="icon-sede">Lima</h3>
-          </a>
+      </ul>
+      <ul id="cohorts">
+        <li class="venue-list">
+          <a id="lim" class="box" href="#"> Lima </a>
         </li>
         <li class="venue-list">
-          <a class="box" href="#">
-            <h3 class="icon-sede">Sao Paulo</h3>
-          </a>
+          <a id="spl" class="box" href="#"> Sao Paulo </a>
         </li>
         <li class="venue-list">
-          <a class="box" href="#">
-            <h3 class="icon-sede">Ciudad de México</h3>
-          </a>
+          <a id="cdmx" class="box" href="#">Ciudad de México</a>
         </li>
         <li class="venue-list">
-          <a class="box" href="#">
-            <h3 class="icon-sede">Guadalajara</h3>
-          </a>
+          <a id="gdl" class="box" href="#">Guadalajara</a>
         </li>
         <li class="venue-list">
-          <a class="box" href="#">
-            <h3 class="icon-sede">Santiago</h3>
-          </a>
+          <a id="scl" class="box" href="#"> Santiago</a>
         </li>
       </ul>
     </div>
-
-
-    <select id="generation-container" onchange="">
-      <option value="">Elige una sede</option>
-      <option value=""></option>
-      
-    </select>
-
-
-    <div class="page-content">
-      <ul class=" header">
-        <li class="login">
-          <img src="imag/laboratoriaBlack.PNG">
-        </li>
-        <li class="login">
-          <a href="https://lms.laboratoria.la/settings">
-            <h3 id="output" class="icon-salida">cerrar sesión</h3>
-          </a>
-        </li>
-      </ul>
+    <div id="page-content">
+      <div id="logo">
+        <img src="imag/laboratoriaBlack.PNG">
+      </div>
+      <div id="output">
+        <a href="https://lms.laboratoria.la/settings">
+          <button class="icon-salida">cerrar sesión</button>
+        </a>
+      </div>
     </div>
-   
-    <div class="page-content-wrap">
+    < <div class="page-content-wrap">
       <!-- <div class="row">
         <div class="column">
           <p>Total de alumnas</p>
@@ -99,11 +79,13 @@
         <div class="column"> otro
         </div>
       </div> -->
+      <div id="generation-container">
+      </div>
       <div class="page-content-filters">
         <!-- <div class="button-row">
           //boton de busqueda //gift de busqueda
         </div> -->
-        <div>
+        <!-- <div>1
           <table>
             <tr>
               <th>Estudiante</th>
@@ -113,22 +95,22 @@
               <th>Completitud general (%)</th>
             </tr>
             <tr>
-              <th>//Tablero
-
+              <th>
               </th>
             </tr>
           </table>
-        </div>
+        </div>1 -->
       </div>
-    </div>
-    <!-- <div class="page-footer">
+      <div id="students-container">
+      </div>
+  </div>
+  <!-- <div class="page-footer">
       <footer>
         <p>Hagamos la industria TECH más diversa</p>
         //gitf de like y dislike
       </footer> -->
   </div>
   </div>
-
   <script src="data.js"></script>
   <script src="main.js"></script>
 

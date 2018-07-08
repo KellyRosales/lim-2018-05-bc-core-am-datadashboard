@@ -1,87 +1,84 @@
-// // En este caso puedes usar main.js para todo tu código que tenga que ver con mostrar los datos en la pantalla,
+//accediendo a elementos del DOM 
+let listVenue = document.querySelector('#cohorts');
+let generationContainer = document.getElementById('generation-container'); 
+let studentsContainer = document.getElementById('students-container');
 
-// getFunctions = () => {
-//     getData('../data/cohorts/lim-2018-03-pre-core-pw/users.json', (err, dataUsers) => {
-//         getData('../data/cohorts/lim-2018-03-pre-core-pw/progress.json', (err, dataProgress) => {
-//             getData('../data/cohorts.json', (err, dataCohorts) => {
-//                 computerUsersStats(dataUsers, dataProgress, dataCohorts)
-//             });
-//         });
-//     });
-// }
-// const resultadosUser = document.getElementById('mostrar-students');
-// resultadosUser.addEventListener('click', getFunctions);
-// const studentsContainer = document.getElementById('students-container');
+// creando el objeto "options"
+let options = {
+    cohort: null, //Objeto cohort (de la lista de cohorts)
+    cohortData: {
+        users: null,//Arreglo de usuarios miembros del cohort.
+        progress: null, //Objeto con data de progreso de cada usuario 
+    },
+    orderBy: 'name', // String con criterio de ordenado, ver sortUsers
+    orderDirection: 'ASC', //String con dirección de ordenado (ver sortUsers).
+    search: ' ',//String de búsqueda (ver filterUsers)
+};
 
-// const exercisesContainer = document.getElementById('exercises-container');
-
-
-// getGeneration = () => {
-//     getData('../data/cohorts.json', (err, dataCohorts) => {
-//         generationCohort(dataCohorts);
-//     });
-// }
-
-
-// const resultadosGeneration= document.getElementById('mostrar-generation');
-// resultadosGeneration.addEventListener('click',getGeneration);
-// const generationContainer = document.getElementById('generation-container');
-
-
-// // Función para hacer las conexiones  XHR 
-// const getData = (url, callback) => {
-//     let xhr = new XMLHttpRequest();
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState == 4 && xhr.status == 200) {
-//             var data1 = JSON.parse(xhr.responseText);
-//             callback(null, data1);
-//         }
-//     }
-//     xhr.open('GET', url, true);
-//     xhr.send();
-// }
-
-
-//VOLVIENDO HACER LOS LLAMADOS CALLBACK
-//Llamando elementos del DOM / INTERACTUANDO CON EL CLIK
-const listVenue = document.querySelectorAll('.venue-list');  //Sedes
-console.log(listVenue);
-
-for(const venue of listVenue){ //
-    venue.addEventListener('click', (event)=>{
-        console.log(event.target);
-    })
-}; 
-
-cada vez que hagan click por cada nodo (venue) se ejecute un console log del event target  
-
- const generationContainer=document.getElementById('generation-container'); //generaciones o promociones
-
-listVenue.addEventListener('click', (event)=>{
-    //insertando el nombre de quien le doy valor
-    generationContainer.innerHTML= 
-    `<option value="" class="generation"> ${event.target.id}  </option>`
- }),
-
-
-// FUNCION PARA HACER LAS CONEXIONES XHR (1 función)
- getData = (str, url, callback) => {
-    let  xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            const response = JSON.parse(xhr.responseText);
-            callback(str, response);
-        }
-    }
+// Función de solicitud XHR
+const getData = (str, url, callback) => {
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
+    xhr.addEventListener('load', event => {
+      if (event.target.readyState === 4 && event.target.status === 200) {
+        const response = (JSON.parse(event.target.responseText));
+        callback(str, response)
+      }
+    });
     xhr.send();
+    }
+
+
+//Funciones callback
+const callbackCohorts = (sede, dataCohorts) => {
+    options.cohort = dataCohorts; // array de cohorts
+    const cohortsOfSede = dataCohorts.filter(cohort => {
+        return cohort.id.indexOf(sede) !== -1;
+    });
+    generationContainer.innerHTML = '';
+    for (cohort of cohortsOfSede) {
+        generationContainer.innerHTML += `
+        <div  class="generation">
+            <div id='${cohort.id}'>${cohort.id}</div>
+        </div>`;
+    };
 }
-// declarando A- 2función //Filtra las sedes
-const callbackCohorts=(campus, dataCohorts)=>{
-console.log(campus, dataCohorts)
+
+const callbackProgress = (studentProgress, dataProgress) => {
+    options.cohortData.progress = dataProgress;
+    const arrayFourFunction = processCohortData(options);
+    studentsContainer.innerHTML= '';
+    for (const user of arrayFourFunction ){
+        studentsContainer.innerHTML +=
+        `
+        <div  class="students">
+            <div >${user.stats.name}</div>
+            <div >${user.stats.percent}</div>
+            <div >${user.stats.exercises.completed}</div>
+            <div >${user.stats.reads.completed}</div>
+            <div>${user.stats.quizzes.completed}</div>
+        </div>`
+    }
 }
-  
-// llamado A-3 función
-listVenue.addEventListener('click',(event)=>{
-getData(event.target.id,'../data/cohorts.json', callbackCohorts)
+
+const callbackUsers = (person, dataUsers) => {
+    options.cohortData.users = dataUsers;
+    //Extrayendo los archivos JSON de progress
+    getData(person, `../../data/cohorts/${person}/progress.json`, callbackProgress);
+}
+
+// Eventos click
+//Extrayendo los archivos JSON de cohorts
+listVenue.addEventListener('click', (event) => {
+    getData(event.target.id, '../../data/cohorts.json', callbackCohorts)
+});
+//Extrayendo los archivos JSON de users
+generationContainer.addEventListener('click', (event) => {
+    //reasignando el objeto options
+    options.cohort.forEach((generation) => {
+        if (generation.id === event.target.id) {
+            options.cohort = generation;
+        }
+    });
+    getData(event.target.id, `../../data/cohorts/${event.target.id}/users.json`, callbackUsers)
 });
