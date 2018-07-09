@@ -6,12 +6,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
   <link rel="stylesheet" href="css/style.css">
-  <!-- <link rel="stylesheet" href="css/fontello.css"> -->
+
   <title>My Data Dashboar</title>
 </head>
 
 <body>
   <div class="container" style="width:100%; height:100%;">
+    <!-- Menu lateral izquierdo -->
     <div class="menu">
       <ul class="perfil">
         <li class="xn-profile">
@@ -34,7 +35,12 @@
           <font style="vertical-align: inherit">
             <p>¡Bienvenida!
               <br> Estamos aquí para lo que necesites.
-              <br> El equipo de <br> <strong> < Laboratoria > </strong></p>
+              <br> El equipo de
+              <br>
+              <strong>
+                < Laboratoria>
+              </strong>
+            </p>
           </font>
         </li>
         <li class="xn-title">
@@ -59,60 +65,37 @@
         </li>
       </ul>
     </div>
-    <div id="page-content">
+    <!-- encabezado -->
+    <div id="header">
       <div id="logo">
         <img src="imag/laboratoriaBlack.PNG">
       </div>
-      <div id="output">
-        <a href="https://lms.laboratoria.la/settings">
-          <button class="icon-salida">cerrar sesión</button>
-        </a>
-      </div>
     </div>
-    < <div class="page-content-wrap">
-      <!-- <div class="row">
-        <div class="column">
-          <p>Total de alumnas</p>
-          //gitf de campana, reloj y calendario
-          <img "insertar icono">
-        </div>
-        <div class="column"> otro
-        </div>
-      </div> -->
+    <!-- cuerpo principal -->
+    <div class="page-content-wrap">
       <div id="generation-container">
       </div>
       <div class="page-content-filters">
-        <!-- <div class="button-row">
-          //boton de busqueda //gift de busqueda
-        </div> -->
-        <!-- <div>1
-          <table>
-            <tr>
-              <th>Estudiante</th>
-              <th>Ejercicios completados (%)</th>
-              <th>Quizes completados(%)</th>
-              <th>Lecturas completadas (%)</th>
-              <th>Completitud general (%)</th>
-            </tr>
-            <tr>
-              <th>
-              </th>
-            </tr>
-          </table>
-        </div>1 -->
       </div>
-      <div id="students-container">
-      </div>
-  </div>
-  <!-- <div class="page-footer">
-      <footer>
-        <p>Hagamos la industria TECH más diversa</p>
-        //gitf de like y dislike
-      </footer> -->
-  </div>
-  </div>
-  <script src="data.js"></script>
-  <script src="main.js"></script>
+      <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Estudiante</th>
+            <th>Completitud General</th>
+            <th>Completitud de Ejercicios</th>
+            <th>Completitud de Lecturas</th>
+            <th>Completitud de Quizzes</th>
+          </tr>
+        </thead>
+        <tbody id="container">
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
 
 </body>
 

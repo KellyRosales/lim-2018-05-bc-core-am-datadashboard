@@ -1,7 +1,9 @@
 //accediendo a elementos del DOM 
 let listVenue = document.querySelector('#cohorts');
 let generationContainer = document.getElementById('generation-container'); 
-let studentsContainer = document.getElementById('students-container');
+let studentsContainer = document.getElementById('container');
+
+
 
 // creando el objeto "options"
 let options = {
@@ -48,23 +50,23 @@ const callbackProgress = (studentProgress, dataProgress) => {
     options.cohortData.progress = dataProgress;
     const arrayFourFunction = processCohortData(options);
     studentsContainer.innerHTML= '';
-    for (const user of arrayFourFunction ){
-        studentsContainer.innerHTML +=
+    for (const users of arrayFourFunction ){
+        const table = document.createElement('tr')
+        table.innerHTML +=`
+            <td >${users.stats.name}</td>
+            <td >${users.stats.percent}</td>
+            <td >${users.stats.exercises.completed}</td>
+            <td >${users.stats.reads.completed}</td>
+            <td>${users.stats.quizzes.completed}</td>
         `
-        <div  class="students">
-            <div >${user.stats.name}</div>
-            <div >${user.stats.percent}</div>
-            <div >${user.stats.exercises.completed}</div>
-            <div >${user.stats.reads.completed}</div>
-            <div>${user.stats.quizzes.completed}</div>
-        </div>`
+        studentsContainer.appendChild(table)
     }
 }
 
 const callbackUsers = (person, dataUsers) => {
     options.cohortData.users = dataUsers;
     //Extrayendo los archivos JSON de progress
-    getData(person, `../../data/cohorts/${person}/progress.json`, callbackProgress);
+    getData(person, `../../data/cohorts/${person}/progressPrueba.json`, callbackProgress);
 }
 
 // Eventos click
@@ -80,5 +82,7 @@ generationContainer.addEventListener('click', (event) => {
             options.cohort = generation;
         }
     });
-    getData(event.target.id, `../../data/cohorts/${event.target.id}/users.json`, callbackUsers)
+
+    getData(event.target.id, `../../data/cohorts/${event.target.id}/usersPrueba.json`, callbackUsers)
 });
+
