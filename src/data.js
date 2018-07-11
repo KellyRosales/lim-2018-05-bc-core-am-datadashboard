@@ -84,7 +84,13 @@ window.computeUsersStats = (users, progress, courses) => {
   })
   return mapUser;
 }
+window.sortUsers= (users, orderBy, orderDirection) => {
+//ordenar la lista de usuarios en base a orderBy y orderDirection.
 
+
+
+  //return: array de usuarios completados
+}
 window.processCohortData = (options) => {
   const courses = Object.keys(options.cohort.coursesIndex);
   let users = computeUsersStats(options.cohortData.users, options.cohortData.progress, courses);
