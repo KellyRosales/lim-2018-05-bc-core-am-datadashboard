@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
-  <title>My Data Dashboar</title>
+  <title>My Data Dashboard</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
               <br> El equipo de
               <br>
               <strong>
-                 Laboratorian
+                Laboratorian
               </strong>
             </p>
           </font>
@@ -78,37 +78,57 @@
       </div>
       <div class="page-content-filters">
       </div>
+      <div >
+        <select id="conteiner-orderBy"class="custom-select custom-select-lg mb-3">
+          <option selected>Ordenar por</option>
+          <option value="Estudiante">Estudiante</option>
+          <option value="General">Completitud general(%)</option>
+          <option value="Ejercicios">Ejercicios completados(%)</option>
+          <option value="Lecturas">Lecturas completadas(%)</option>
+          <option value="Quizzes">Quizzes completados (%)</option>
+          <option value="prom-quizzes">Promedio de Quizzes completados</option>
+        </select>
+
+        <select id="conteiner-orderDirection"class="custom-select custom-select-sm">
+          <option selected>Posición de ordenado</option>
+          <option value="ASC">Ascendente</option>
+          <option value="DESC">Descendente</option>
+        </select>
+      </div>
       <div>
+
         <table class="table">
           <thead>
             <tr>
               <th scope="col">Estudiante</th>
               <th scope="col">Completitud
-                <br> de ejercicios</th>
-              <th scope="col">Completitud
-                <br> de lecturas</th>
-              <th scope="col">Completitud
-                <br>de quizzes</th>
-              <th scope="col">Completitud
-                <br> general</th>
+                <br> general(%)</th>
+              <th scope="col">Ejercicios
+                <br> completados(%)</th>
+              <th scope="col">Lecturas
+                <br>completadas(%)</th>
+              <th scope="col">Quizzes
+                <br> completados(%)</th>
+              <th scope="col">Promedio de quizzes
+                 <br> completados(%)</th>
             </tr>
           </thead>
           <tbody id="container">
 
           </tbody>
         </table>
-
       </div>
-    </div> 
     </div>
-    <script src="data.js"></script>
-    <script src="main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-      crossorigin="anonymous"></script>
+  </div>
+  </div>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
