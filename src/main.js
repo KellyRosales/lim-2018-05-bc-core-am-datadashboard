@@ -6,8 +6,6 @@ let orderBy = document.getElementById('container-orderBy');
 let orderDirection=document.getElementById('container-orderDirection');
 let search=document.getElementById('search')
 
-
-
 // creando el objeto "options"
 let options = {
     cohort: 0, //Objeto cohort (de la lista de cohorts)
@@ -20,8 +18,6 @@ let options = {
     search: ' ',//String de búsqueda (ver filterUsers)
     
 };
-
-
 // Función de solicitud XHR
 const getData = (str, url, callback) => {
     let xhr = new XMLHttpRequest();
