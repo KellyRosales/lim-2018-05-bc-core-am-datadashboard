@@ -195,4 +195,3 @@ window.processCohortData = (options) => {
   users = options.search ? filterUsers(users, options.search) : users;
   return users
 }
-
