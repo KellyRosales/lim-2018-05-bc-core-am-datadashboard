@@ -26,19 +26,19 @@ En base a la información recopilada, la web a diseñada resuelve el problema de
 
 # Entrevista al usuario
 ## ¿Quiénes son los principales usuarios de producto?
-    La principal usuaria del producto es la Trainning Manager de Laboratoria.
+La principal usuaria del producto es la Trainning Manager de Laboratoria.
 
 ## ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
-    El principal objetivo de los usuarios es obtener una web simple en la que pueda navegar intuitivamente y obtener los datos de los ejercicios completados de las alumnas, pues este le permite ver el avance del grupo en cuestión.
+El principal objetivo de los usuarios es obtener una web simple en la que pueda navegar intuitivamente y obtener los datos de los ejercicios completados de las alumnas, pues este le permite ver el avance del grupo en cuestión.
 
 ## ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
-    Los datos más importantes y relevantes que desean ver en la interfaz es el análisis de la data por promociones (cohorts) para ver el avance de laboratoria desde su inauguración.
+Los datos más importantes y relevantes que desean ver en la interfaz es el análisis de la data por promociones (cohorts) para ver el avance de laboratoria desde su inauguración.
 
 ## ¿Cuándo revisan normalmente estos datos los usuarios?
-    La Trainning Manager revisa el tablero de datos del progreso de las alumnas acabando el día y como principal momento el fin de un proyecto.
+La Trainning Manager revisa el tablero de datos del progreso de las alumnas acabando el día y como principal momento el fin de un proyecto.
 
 ## ¿Cómo crees que el producto les está resolviendo sus problemas?
-    LA web diseñada logra mostrar la completitud de ejercicios, lecturas y quizzes desarrollados por las alumnas, ordenar esta data de manera ascendente y descendente, y filtrar a las alumnas por sus nombres.
+LA web diseñada logra mostrar la completitud de ejercicios, lecturas y quizzes desarrollados por las alumnas, ordenar esta data de manera ascendente y descendente, y filtrar a las alumnas por sus nombres.
 
 
 # Proceso de diseño
