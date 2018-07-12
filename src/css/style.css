@@ -3,20 +3,27 @@
 *{
     margin: 0;
     padding: 0;
-    background: rgb(208, 208, 201);
 }
-.container-principal{
+
+#header-container{
     background: black;
 }
 
-.menu{
-    background: rgb(208, 208, 201); 
+#firstGrid{ 
+    background: #FFE521;
 }
-#first{
- margin:0;
- background: red;
+
+#secondGrid{
+    background: rgb(240, 240, 240);
+
 }
-#second{
-margin:0;
-background-attachment: black;
+.venue-List{
+    text-decoration: none;
 }
+#cohorts{
+    list-style: none;
+}
+.main-body{
+     background: white;
+}
+

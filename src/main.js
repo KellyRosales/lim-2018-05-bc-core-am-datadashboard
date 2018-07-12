@@ -2,8 +2,9 @@
 let listVenue = document.querySelector('#cohorts');
 let generationContainer = document.getElementById('generation-container');
 let studentsContainer = document.getElementById('container');
-let orderBy = document.getElementById('conteiner-orderBy');
-let orderDirection=document.getElementById('conteiner-orderDirection');
+let orderBy = document.getElementById('container-orderBy');
+let orderDirection=document.getElementById('container-orderDirection');
+let search=document.getElementById('search')
 
 
 
@@ -19,6 +20,7 @@ let options = {
     search: ' ',//String de búsqueda (ver filterUsers)
     
 };
+
 
 // Función de solicitud XHR
 const getData = (str, url, callback) => {
@@ -39,7 +41,7 @@ const searchData = (fourFunction) => {
     for (const users of fourFunction) {
         const row = document.createElement('tr')
         row.innerHTML += `
-                  <th scope="row"> ${users.name} </th>
+                  <th scope="row"> ${users.stats.name} </th>
                   <td >${users.stats.percent}%</td>
                   <td >${users.stats.exercises.percent}</td>
                   <td >${users.stats.reads.percent}</td>
@@ -100,9 +102,15 @@ orderDirection.addEventListener('change', (event) => {
        options.orderDirection = orderDirection.value
        options.orderBy = orderBy.value
 
-        const dataOrderBy = processCohortData(options); // llama a la funcionalidad
-console.log(dataOrderBy)        
+        const dataOrderBy = processCohortData(options); // llama a la funcionalidad      
         studentsContainer.innerHTML =''; 
-        searchData(dataOrderBy);        
+        searchData(dataOrderBy);     
     
-})
+});
+search.addEventListener('input',(event)=>{
+
+    options.search = event.target.value;
+    const dataSearch = processCohortData(options);
+    studentsContainer.innerHTML =''; 
+    searchData(dataSearch);
+});

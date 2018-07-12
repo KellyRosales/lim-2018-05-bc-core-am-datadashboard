@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,7 +12,7 @@
 
 <body>
     <header>
-        <div class="container-principal" class="container-fluid">
+        <div id="header-container" class="container-fluid">
             <!-- contenido del 100% -->
             <img src="imag/laboratoriaBlack.PNG">
         </div>
@@ -21,10 +22,11 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Menu -->
-            <div class="Col-xs-3 Col-sm-3 Col-md-3">
+            <div id="firstGrid" class="col-xs-2 col-sm-2 col-md-2">
                 <!-- imagen trainning manager -->
                 <div class="main-body">
-                    <img src="imag/Ale.png" alt="Alejandra Ramirez">
+                    <center>
+                        <img src="imag/Ale.png" alt="Alejandra Ramirez"> </center>
                 </div>
                 <!-- mombre de la trainning manager -->
                 <div class="menu">
@@ -44,27 +46,49 @@
                     </p>
                 </div>
                 <!-- sedes -->
-                <div  class="menu">
+                <div class="menu">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">
-                            SEDES
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">Lima</a>
-                        <a href="#" class="list-group-item list-group-item-action">Sao Paulo</a>
-                        <a href="#" class="list-group-item list-group-item-action">Ciudad de México</a>
-                        <a href="#" class="list-group-item list-group-item-action">Guadalajara</a>
-                        <a href="#" class="list-group-item list-group-item-action">Santiago de Chile</a>
-                        <!-- <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> -->
+                        <ul id="cohorts">
+                            <li class="venue-list">
+                                <a href="#" class="list-group-item list-group-item-action active">
+                                    SEDES </a>
+                            </li>
+                            <li class="venue-list">
+                                <a id="lim" href="#" class="list-group-item list-group-item-action">Lima</a>
+                            </li>
+                            <li class="venue-list">
+                                <a id="spl" href="#" class="list-group-item list-group-item-action">Sao Paulo</a>
+                            </li>
+                            <li class="venue-list">
+                                <a id="cdmx" href="#" class="list-group-item list-group-item-action">Ciudad de México</a>
+                            </li>
+                            <li class="venue-list">
+                                <a id="gdl" href="#" class="list-group-item list-group-item-action">Guadalajara</a>
+                            </li>
+                            <li class="venue-list">
+                                <a id="scl" href="#" class="list-group-item list-group-item-action">Santiago de Chile</a>
+                            </li>
+                            <!-- <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> -->
+                        </ul>
                     </div>
 
                 </div>
-
             </div>
             <!-- cuerpo principal -->
-            <div class="Col-xs-9 Col-sm-9 Col-md-9">
+            <div id="secondGrid" class="col-xs-10 col-sm-10 col-md-10">
+                <!-- SE OBTENDRÁN LOS COHORTS -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Generaciones
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a id="generation-container" class="dropdown-item" href="#"> </a>
+                    </div>
+                </div>
                 <!-- botones -->
-                <div >
-                    <select id="conteiner-orderBy" class="custom-select custom-select-lg mb-3">
+                <div>
+                    <select id="container-orderBy" class="custom-select custom-select-lg mb-3">
                         <option selected>Ordenar por</option>
                         <option value="Estudiante">Estudiante</option>
                         <option value="General">Completitud general(%)</option>
@@ -74,32 +98,32 @@
                         <option value="prom-quizzes">Promedio de Quizzes completados</option>
                     </select>
 
-                    <select id="conteiner-orderDirection" class="custom-select custom-select-sm">
+                    <select id="container-orderDirection" class="custom-select custom-select-sm">
                         <option selected>Posición de ordenado</option>
                         <option value="ASC">Ascendente</option>
                         <option value="DESC">Descendente</option>
                     </select>
                 </div>
                 <!-- filtrado -->
-                <div >
+                <div>
                     <div class="input-group">
-                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                        <input id="search" type="text" placeholder="búsqueda" class="form-control">
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-outline-secondary">Búsqueda</button>
+                            <!-- <button type="button" class="btn btn-outline-secondary">Búsqueda</button>
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 <span class="sr-only">Alumnas</span>
-                            </button>
+                            </button> -->
                             <!-- <div class="dropdown-menu"> -->
-                                <!-- <a class="dropdown-item" href="#">Búsqueda</a> -->
-                                <!-- <div role="separator" class="dropdown-divider"></div> -->
-                                <!-- <a class="dropdown-item" href="#">Separated link</a> -->
+                            <!-- <a class="dropdown-item" href="#">Búsqueda</a> -->
+                            <!-- <div role="separator" class="dropdown-divider"></div> -->
+                            <!-- <a class="dropdown-item" href="#">Separated link</a> -->
                             <!-- </div> -->
                         </div>
                     </div>
                 </div>
                 <!-- tabla -->
-                <div >
+                <div>
                     <table class="table">
                         <thead>
                             <tr>
@@ -116,6 +140,7 @@
                                     <br> completados(%)</th>
                             </tr>
                         </thead>
+                        <!-- SE OBTENDRÁ EL PROGRESO -->
                         <tbody id="container">
 
                         </tbody>

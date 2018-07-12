@@ -75,31 +75,203 @@ describe('data', () => {
   });
 
   describe('sortUsers(users, orderBy, orderDirection)', () => {
+    let userOne = {
+      stats: {
+        name : "Angie",
+        percent: 100,
+        exercises : {
+          total: 2,
+          completed: 2,
+          percent: 100
+        },
+        reads : {
+          total: 11,
+          completed: 11,
+          percent: 100
+        },
+        quizzes : {
+          total: 3,
+          completed: 3,
+          percent: 100,
+          scoreSum: 255,
+          scoreAvg: 85
+        }
+      }
+    }
+    let userTwo = {
+      stats: {
+        name : "Lizeth Carmona",
+        percent: 36,
+        exercises : {
+          total: 5,
+          completed: 0,
+          percent: 0
+        },
+        reads : {
+          total: 10,
+          completed: 2,
+          percent: 20
+        },
+        quizzes : {
+          total: 8,
+          completed: 2,
+          percent: 25,
+          scoreSum: 160,
+          scoreAvg: 80
+        }
+      }
+    }
+    let userThree = {
+      stats: {
+        name : "Annie Herrera",
+        percent: 90,
+        exercises : {
+          total: 5,
+          completed: 4,
+          percent: 80
+        },
+        reads : {
+          total: 10,
+          completed: 5,
+          percent: 50
+        },
+        quizzes : {
+          total: 8,
+          completed: 4,
+          percent: 50,
+          scoreSum: 320,
+          scoreAvg: 80
+        }
+      }
+    }
+    let userCompleted = [userOne, userTwo, userThree];
 
-    it('debería retornar arreglo de usuarios ordenado por nombre ASC');
-    it('debería retornar arreglo de usuarios ordenado por nombre DESC');
-    it('debería retornar arreglo de usuarios ordenado por porcentaje general ASC');
-    it('debería retornar arreglo de usuarios ordenado por porcentaje general DESC');
-    it('debería retornar arreglo de usuarios ordenado por ejercicios completados ASC');
-    it('debería retornar arreglo de usuarios ordenado por ejercicios completados DESC');
-    it('debería retornar arreglo de usuarios ordenado por quizzes completados ASC');
-    it('debería retornar arreglo de usuarios ordenado por quizzes completados DESC');
-    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados ASC');
-    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados DESC');
-    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas ASC');
-    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas DESC');
-
+    it('debería retornar arreglo de usuarios ordenado por nombre ASC',  () => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Estudiante", "ASC"), [userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por nombre DESC', () => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Estudiante", "DESC"), [userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por porcentaje general ASC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "General", "ASC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por porcentaje general DESC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "General", "DESC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por ejercicios completados ASC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Ejercicios", "ASC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por ejercicios completados DESC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Ejercicios", "DESC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por quizzes completados ASC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Quizzes", "ASC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por quizzes completados DESC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Quizzes", "DESC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados ASC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "prom-quizzes", "ASC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados DESC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "prom-quizzes", "DESC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas ASC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Lecturas", "ASC"),[userOne, userTwo, userThree])
+    });
+    it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas DESC',() => {
+      assert.deepEqual(window.sortUsers(userCompleted, "Lecturas", "DESC"),[userOne, userTwo, userThree])
+    });
   });
 
   describe('filterUsers(users, filterBy)', () => {
+    let userOne = {
+      stats: {
+        name : "Angie",
+        percent: 100,
+        exercises : {
+          total: 2,
+          completed: 2,
+          percent: 100
+        },
+        reads : {
+          total: 11,
+          completed: 11,
+          percent: 100
+        },
+        quizzes : {
+          total: 3,
+          completed: 3,
+          percent: 100,
+          scoreSum: 255,
+          scoreAvg: 85
+        }
+      }
+    }
+    let userTwo = {
+      stats: {
+        name : "Lizeth Carmona",
+        percent: 36,
+        exercises : {
+          total: 5,
+          completed: 0,
+          percent: 0
+        },
+        reads : {
+          total: 10,
+          completed: 2,
+          percent: 20
+        },
+        quizzes : {
+          total: 8,
+          completed: 2,
+          percent: 25,
+          scoreSum: 160,
+          scoreAvg: 80
+        }
+      }
+    }
+    let userThree = {
+      stats: {
+        name : "Annie Herrera",
+        percent: 90,
+        exercises : {
+          total: 5,
+          completed: 4,
+          percent: 80
+        },
+        reads : {
+          total: 10,
+          completed: 5,
+          percent: 50
+        },
+        quizzes : {
+          total: 8,
+          completed: 4,
+          percent: 50,
+          scoreSum: 320,
+          scoreAvg: 80
+        }
+      }
+    }
+    let userCompleted =  [userOne, userTwo, userThree];
 
     it('debería retornar nuevo arreglo solo con usuarios con nombres que contengan string (case insensitive)');
-
+    assert.deepEqual(window.filterUsers(userCompleted, "an"), [userOne,userThree])
   });
 
-  describe('processCohortData({ cohortData, orderBy, orderDirection, filterBy })', () => {
+  describe('processCohortData({ cohortData, orderBy, orderDirection, filterBy })',() => {
+    let options = {
+      cohort: fixtures.cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw'),
+      cohortData: fixtures,
+      orderBy: 'name',
+      orderDirection: 'ASC',
+      search: 'angie'
+    };
 
-    it('debería retornar arreglo de usuarios con propiedad stats y aplicar sort y filter');
+    it('debería retornar arreglo de usuarios con propiedad stats y aplicar sort y filter', ()=>{
+      assert.deepEqual(window.processCohortData(options).length, 2)
+    });
 
   });
 

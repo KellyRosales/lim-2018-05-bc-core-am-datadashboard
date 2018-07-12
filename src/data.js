@@ -1,5 +1,6 @@
 window.computeUsersStats = (users, progress, courses) => {
-  let mapUser = users.filter((us) => us.role === 'student').map((student) => {
+ 
+  let mapUser = users.filter((users)=>users.role === "student").map((student) => {
     // Declaro mis variables acumuladoras
     let percent;
     let exercisesTotal = 0;
@@ -44,8 +45,8 @@ window.computeUsersStats = (users, progress, courses) => {
               if (type === "quiz") {
                 quizzesTotal += 1;
                 quizzesCompleted += part.completed;
-                scoreSum += part.score ? (part.score) : 0; // previniendo undefine
-                scoreAvg += scoreSum / quizzesCompleted ? (scoreSum / quizzesCompleted) : 0 //Previniendo NaN, Promedio de  puntuaciones
+                scoreSum += part.score ? part.score : 0; // previniendo undefine
+                scoreAvg += scoreSum / quizzesCompleted ? scoreSum / quizzesCompleted : 0 //Previniendo NaN, Promedio de  puntuaciones
               }
             }
           })
@@ -55,11 +56,11 @@ window.computeUsersStats = (users, progress, courses) => {
 
     const exercisesPercent = Math.round((exercisesCompleted / exercisesTotal) * 100)
     const readsPercent = Math.round((readsCompleted / readsTotal) * 100);
-    const quizzesPercent = Math.round((quizzesCompleted / quizzesCompleted) * 100);
+    const quizzesPercent = Math.round((quizzesCompleted / quizzesTotal) * 100);
 
     const usersWithStats = {
-      name: student.name.toUpperCase(),
       stats: {
+        name: student.name.toUpperCase(),
         percent: isNaN(Math.round(percent)) ? 0 : Math.round(percent),
         exercises: {
           total: exercisesTotal,
@@ -87,63 +88,111 @@ window.computeUsersStats = (users, progress, courses) => {
 
 window.sortUsers = (users, orderBy, orderDirection) => {
   //ordenando según nombre
-  if (orderBy === 'Estudiante' && orderDirection === 'ASC') {
-    return users.sort((a, b) => (a.name > b.name ? 1 : -1));
+  let userSort;
+  if (orderDirection ==='ASC'){
+    if (orderBy === 'Estudiante') {
+      userSort = users.sort((a ,b) => {
+        return a.name-b.name;
+      });
+    }
   }
-  else if (orderBy = 'Estudiante' && orderDirection === 'DESC') {
-    return users.sort((a, b) => (a.name < b.name ? 1 : -1));
+  if (orderDirection ==='DESC'){
+    if (orderBy === 'Estudiante') {
+      userSort = users.sort((a ,b) => {
+        return b.name-a.name;
+      });
+    }
   }
-  //ordenando según completitud general
-  if (orderBy === 'General' && orderDirection === 'ASC') {
-    return users.sort((a, b) => (a.stats.percent > b.stats.percent ? 1 : -1))
+
+//ordenando según completitud general
+  if (orderDirection ==='ASC'){
+    if (orderBy === 'General') {
+      userSort = users.sort((a ,b) => {
+        return a.stats.percent - b.stats.percent;
+      });
+    }
   }
-  else if (orderBy === 'General' && orderDirection === 'DESC') {
-    return users.sort((a, b) => (a.stats.percent < b.stats.percent ? 1 : -1))
+  if (orderDirection ==='DESC'){
+    if (orderBy === 'General') {
+      userSort = users.sort((a ,b) => {
+        return b.stats.percent - a.stats.percent;
+      });
+    }
   }
-  //ordenando según porcentje de ejercicios completados
-  if (orderBy === 'Ejercicios' && orderDirection === 'ASC') {
-    return users.sort((a, b) => (a.stats.exercises.percent > b.stats.exercises.percent) ? 1 : -1);
+  //ordenando según porcentaje de ejercicios  completadas
+  if (orderDirection ==='ASC'){
+    if (orderBy === 'Ejercicios') {
+      userSort = users.sort((a ,b) => {
+        return a.stats.exercises.percent - b.stats.exercises.percent;
+      });
+    }
   }
-  else if (orderBy === 'Ejercicios' && orderDirection === 'DESC') {
-    return users.sort((a, b) => (a.stats.exercises.percent < b.stats.exercises.percent) ? 1 : -1);
+  if (orderDirection ==='DESC'){
+    if (orderBy === 'Ejercicios') {
+      userSort = users.sort((a ,b) => {
+        return b.stats.exercises.percent - a.stats.exercises.percent;
+      });
+    }
   }
   //ordenando según porcentaje de lecturas completadas
-  if (orderBy === 'Lecturas' && orderDirection === 'ASC') {
-    return users.sort((a, b) => (a.stats.reads.percent > b.stats.reads.percent ? 1 : -1))
+  if (orderDirection ==='ASC'){
+    if (orderBy === 'Lecturas') {
+      userSort = users.sort((a ,b) => {
+        return a.stats.reads.completed - b.stats.reads.completed;
+      });
+    }
   }
-  else if (orderBy === 'Lecturas' && orderDirection === 'DESC') {
-    return users.sort((a, b) => (a.stats.reads.percent < b.stats.reads.percent ? 1 : -1))
+  if (orderDirection ==='DESC'){
+    if (orderBy === 'Lecturas') {
+      userSort = users.sort((a ,b) => {
+        return b.stats.reads.percent - a.stats.reads.percent;
+      });
+    }
   }
   //ordenando según porcentaje de quizzes completados
-  if (orderBy === 'Quizzes' && orderDirection === 'ASC') {
-    return users.sort((a, b) => (a.stats.quizzes.percent > b.stats.quizzes.percent ? 1 : -1))
+  if (orderDirection ==='ASC'){
+    if (orderBy === 'Quizzes') {
+      userSort = users.sort((a ,b) => {
+        return a.stats.quizzes.percent - b.stats.quizzes.percent;
+      });
+    }
   }
-  else if (orderBy === 'Quizzes' && orderDirection === 'DESC') {
-    return users.sort((a, b) => (a.stats.quizzes.percent < b.stats.quizzes.percent ? 1 : -1))
+  if (orderDirection ==='DESC'){
+    if (orderBy === 'Quizzes') {
+      userSort = users.sort((a ,b) => {
+        return b.stats.quizzes.percent - a.stats.quizzes.percent;
+      });
+    }
   }
-  //puntuación promedio en quizzes completados,
-  if (orderBy === 'prom-quizzes' && orderDirection === 'ASC') {
-    return users.sort((a, b) => (a.stats.quizzes.scoreAvg > b.stats.quizzes.scoreAvg ? 1 : -1))
+//puntuación promedio en quizzes completados,
+  if (orderDirection === 'ASC'){
+    if (orderBy === 'prom-quizzes') {
+      userSort = users.sort((a, b) => {
+        return a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg;
+      });
+    }
   }
-  else if (orderBy === 'prom-quizzes' && orderDirection === 'DESC') {
-    return users.sort((a, b) => (a.stats.quizzes.scoreAvg < b.stats.quizzes.scoreAvg ? 1 : -1))
+  if (orderDirection === 'DESC'){
+    if (orderBy === 'prom-quizzes') {
+      userSort = users.sort((a, b) => {
+        return b.stats.quizzes.scoreAvg - a.stats.quizzes.scoreAvg;
+      });
+    }
   }
+
+  return userSort ? userSort : users;
 }
 
 window.filterUsers = (users, search) => {
-  //quellos que contengan el string search en el nombre (name) del usuario.
-  let userFilter = users.filter((user)=>{
-    let newUserFilter = user.name.indexOf(search.toUpperCase());
-    newUserFilter !== -1;
-    return newUserFilter
-  })
-  return userFilter
+return users.filter(user => (user.stats.name.toUpperCase().indexOf(search.toUpperCase()))!== -1)
 }
+
 window.processCohortData = (options) => {
 
   const courses = Object.keys(options.cohort.coursesIndex);
   let users = computeUsersStats(options.cohortData.users, options.cohortData.progress, courses);
   users = sortUsers(users, options.orderBy, options.orderDirection);
-  users = filterUSers(users,options.search);
+  users = options.search ? filterUsers(users, options.search) : users;
   return users
 }
+
