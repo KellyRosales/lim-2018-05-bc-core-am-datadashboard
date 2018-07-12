@@ -1,114 +1,141 @@
-<!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
-  <title>My Data Dashboar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <title>My Data Dashboard</title>
 </head>
 
 <body>
-  <div class="container" style="width:100%; height:100%;">
-    <!-- Menu lateral izquierdo -->
-    <div class="menu">
-      <ul class="perfil">
-        <li class="xn-profile">
-          <h3>Data Dashboard</h3>
-        </li>
-        <li>
-          <div class="profile-user">
-            <div class="profile-image">
-              <img src="imag/Ale.png" alt="Alejandra Ramirez">
-            </div>
-            <div class="profile-data">
-              <font style="vertical-align: inherit" class="icon-facebook">Alejandra Ramirez</font>
-            </div>
-            <div class="profile-data-title">
-              <font style="vertical-align: inherit">Trainning Manager</font>
-            </div>
-          </div>
-        </li>
-        <li class="welcome-message">
-          <font style="vertical-align: inherit">
-            <p>¡Bienvenida!
-              <br> Estamos aquí para lo que necesites.
-              <br> El equipo de
-              <br>
-              <strong>
-                 Laboratorian
-              </strong>
-            </p>
-          </font>
-        </li>
-        <li class="xn-title">
-          <h3 class="icon-navegacion">SEDES</h3>
-        </li>
-      </ul>
-      <ul id="cohorts">
-        <li class="venue-list">
-          <a id="lim" class="box" href="#"> Lima </a>
-        </li>
-        <li class="venue-list">
-          <a id="spl" class="box" href="#"> Sao Paulo </a>
-        </li>
-        <li class="venue-list">
-          <a id="cdmx" class="box" href="#">Ciudad de México</a>
-        </li>
-        <li class="venue-list">
-          <a id="gdl" class="box" href="#">Guadalajara</a>
-        </li>
-        <li class="venue-list">
-          <a id="scl" class="box" href="#"> Santiago</a>
-        </li>
-      </ul>
-    </div>
-    <!-- encabezado -->
-    <div id="header">
-      <div id="logo">
-        <img src="imag/laboratoriaBlack.PNG">
-      </div>
-    </div>
-    <!-- cuerpo principal -->
-    <div class="page-content-wrap">
-      <div id="generation-container">
-      </div>
-      <div class="page-content-filters">
-      </div>
-      <div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Estudiante</th>
-              <th scope="col">Completitud
-                <br> de ejercicios</th>
-              <th scope="col">Completitud
-                <br> de lecturas</th>
-              <th scope="col">Completitud
-                <br>de quizzes</th>
-              <th scope="col">Completitud
-                <br> general</th>
-            </tr>
-          </thead>
-          <tbody id="container">
+    <header>
+        <div class="container-principal" class="container-fluid">
+            <!-- contenido del 100% -->
+            <img src="imag/laboratoriaBlack.PNG">
+        </div>
+    </header>
+    <!-- col-xs- col-sm-8 col-md-9 col-lg-9 -->
+    <!-- la clase row crea filas -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Menu -->
+            <div class="Col-xs-3 Col-sm-3 Col-md-3">
+                <!-- imagen trainning manager -->
+                <div class="main-body">
+                    <img src="imag/Ale.png" alt="Alejandra Ramirez">
+                </div>
+                <!-- mombre de la trainning manager -->
+                <div class="menu">
+                    <h3>Alejandra Ramirez
+                        <br>
+                        <strong>Trainning manager</strong>
+                    </h3>
+                </div>
+                <!-- mensaje de bienvenida -->
+                <div class="menu">
+                    <p>¡Bienvenida!
+                        <br> Estamos aquí para lo que necesites.
+                        <br> El equipo de
+                        <strong>
+                            Laboratoria
+                        </strong>
+                    </p>
+                </div>
+                <!-- sedes -->
+                <div  class="menu">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active">
+                            SEDES
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">Lima</a>
+                        <a href="#" class="list-group-item list-group-item-action">Sao Paulo</a>
+                        <a href="#" class="list-group-item list-group-item-action">Ciudad de México</a>
+                        <a href="#" class="list-group-item list-group-item-action">Guadalajara</a>
+                        <a href="#" class="list-group-item list-group-item-action">Santiago de Chile</a>
+                        <!-- <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> -->
+                    </div>
 
-          </tbody>
-        </table>
+                </div>
 
-      </div>
-    </div> 
+            </div>
+            <!-- cuerpo principal -->
+            <div class="Col-xs-9 Col-sm-9 Col-md-9">
+                <!-- botones -->
+                <div >
+                    <select id="conteiner-orderBy" class="custom-select custom-select-lg mb-3">
+                        <option selected>Ordenar por</option>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="General">Completitud general(%)</option>
+                        <option value="Ejercicios">Ejercicios completados(%)</option>
+                        <option value="Lecturas">Lecturas completadas(%)</option>
+                        <option value="Quizzes">Quizzes completados (%)</option>
+                        <option value="prom-quizzes">Promedio de Quizzes completados</option>
+                    </select>
+
+                    <select id="conteiner-orderDirection" class="custom-select custom-select-sm">
+                        <option selected>Posición de ordenado</option>
+                        <option value="ASC">Ascendente</option>
+                        <option value="DESC">Descendente</option>
+                    </select>
+                </div>
+                <!-- filtrado -->
+                <div >
+                    <div class="input-group">
+                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary">Búsqueda</button>
+                            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span class="sr-only">Alumnas</span>
+                            </button>
+                            <!-- <div class="dropdown-menu"> -->
+                                <!-- <a class="dropdown-item" href="#">Búsqueda</a> -->
+                                <!-- <div role="separator" class="dropdown-divider"></div> -->
+                                <!-- <a class="dropdown-item" href="#">Separated link</a> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- tabla -->
+                <div >
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Estudiante</th>
+                                <th scope="col">Completitud
+                                    <br> general(%)</th>
+                                <th scope="col">Ejercicios
+                                    <br> completados(%)</th>
+                                <th scope="col">Lecturas
+                                    <br>completadas(%)</th>
+                                <th scope="col">Quizzes
+                                    <br> completados(%)</th>
+                                <th scope="col">Promedio de quizzes
+                                    <br> completados(%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="container">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+
     <script src="data.js"></script>
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-      crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
