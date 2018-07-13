@@ -184,7 +184,11 @@ window.sortUsers = (users, orderBy, orderDirection) => {
 }
 
 window.filterUsers = (users, search) => {
-return users.filter(user => (user.stats.name.toUpperCase().indexOf(search.toUpperCase()))!== -1)
+let newUser =users.filter((user) => {
+  let userFilter = user.stats.name.toUpperCase().indexOf(search.toUpperCase()) !== -1;
+  return userFilter
+});
+return newUser
 }
 
 window.processCohortData = (options) => {

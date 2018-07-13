@@ -1,4 +1,11 @@
-# Data Dashboard
+
+![dashboard.png](src/imag/dashboard.png) 
+
+# DATA DASHBOARD
+
+# Introducción
+
+La principal idea de este proyecto es crear un tablero de control para el uso personal de la Trainning Manager de Laboratoria, quien  se encuentra en constante revisión de la información generada por el progreso de las estudiantes del bootcamp. Ante esta necesidad, se creó el proyecto Datadashboard, que busca ser una herramienta que ayude al análisis general del porcentaje de los ejercicios, lecturas, quizzes y completitud de cada alumna.
 
 # Preparación de entorno trabajo
 
@@ -43,6 +50,8 @@ LA web diseñada logra mostrar la completitud de ejercicios, lecturas y quizzes 
 
 # Proceso de diseño
 
+![ux.jpg](src/imag/ux.jpg)
+
 El proceso de diseño abarca 3 de las 4 fases del modelo de doble diamante:
 ## Descubrir:
 
@@ -50,7 +59,7 @@ Aquí se recogieron ideas que aportaron al producto, como el uso del actual iden
 
 ## Definir:
 
-Aquí se priorizaron las solicitudes del readme ante las gráficas dinámicas, sin dejar de lado la usabilidad del producto.
+Aquí se priorizaron las solicitudes del readme del proyecto ante las gráficas dinámicas, esto quiere decir que se mossin dejar de lado la usabilidad del producto.
 
 ## Desarrollar:
 
