@@ -45,7 +45,9 @@ window.computeUsersStats = (users, progress, courses) => {
               if (type === "quiz") {
                 quizzesTotal += 1;
                 quizzesCompleted += part.completed;
+                // Suma de todas las puntuaciones (score) de los quizzes completados.
                 scoreSum += part.score ? part.score : 0; // previniendo undefine
+                //Promedio de puntuaciones en quizzes completados.
                 scoreAvg += scoreSum / quizzesCompleted ? scoreSum / quizzesCompleted : 0 //Previniendo NaN, Promedio de  puntuaciones
               }
             }
@@ -162,20 +164,20 @@ window.sortUsers = (users, orderBy, orderDirection) => {
     }
   }
 //puntuación promedio en quizzes completados,
-  if (orderDirection === 'ASC'){
-    if (orderBy === 'prom-quizzes') {
-      userSort = users.sort((a, b) => {
-        return a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg;
-      });
-    }
+if (orderDirection ==='ASC'){
+  if (orderBy === 'prom-quizzes') {
+    userSort = users.sort((a ,b) => {
+      return a.stats.quizzes.scoreAvg - b.stats.quizzes.scoreAvg;
+    });
   }
-  if (orderDirection === 'DESC'){
-    if (orderBy === 'prom-quizzes') {
-      userSort = users.sort((a, b) => {
-        return b.stats.quizzes.scoreAvg - a.stats.quizzes.scoreAvg;
-      });
-    }
+}
+if (orderDirection ==='DESC'){
+  if (orderBy === 'prom-quizzes') {
+    userSort = users.sort((a ,b) => {
+      return b.stats.quizzes.scoreAvg - a.stats.quizzes.scoreAvg;
+    });
   }
+}
 
   return userSort ? userSort : users;
 }
