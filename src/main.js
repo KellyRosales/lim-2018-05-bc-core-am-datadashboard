@@ -76,13 +76,13 @@ const callbackProgress = (studentProgress, dataProgress) => {
 const callbackUsers = (person, dataUsers) => {
     options.cohortData.users = dataUsers;
     //Extrayendo los archivos JSON de progress
-    getData(person, `../../data/cohorts/${person}/progress.json`, callbackProgress);
+    getData(person, `../data/cohorts/${person}/progress.json`, callbackProgress);
 }
 console.log(options)
 // Eventos click
 //Extrayendo los archivos JSON de cohorts
 listVenue.addEventListener('click', (event) => {
-    getData(event.target.id, '../../data/cohorts.json', callbackCohorts)
+    getData(event.target.id, '../data/cohorts.json', callbackCohorts)
 });
 //Extrayendo los archivos JSON de users
 generationContainer.addEventListener('click', (event) => {
@@ -94,7 +94,7 @@ generationContainer.addEventListener('click', (event) => {
         }
     });
 
-    getData(event.target.id, `../../data/cohorts/${event.target.id}/users.json`, callbackUsers)
+    getData(event.target.id, `../data/cohorts/${event.target.id}/users.json`, callbackUsers)
 });
 
 orderDirection.addEventListener('change', (event) => {

@@ -19,7 +19,7 @@ window.computeUsersStats = (users, progress, courses) => {
         const unitStudent = progress[student.id].intro.units; //return : {01-introduction: {…}, 03-ux-design: {…}, 02-variables-and-data-types: {…}}
 
         Object.keys(unitStudent).forEach((nameUnit) => {
-          const partsNameUnit = unitStudent[nameUnit].parts;//return: 05-quiz: {…}, 04-guided-exercises: {…}, 01-variables: {…}, 02-self-learning-MDN: {…}, 03-comments: {…}, …}
+          const partsNameUnit = unitStudent[nameUnit].parts;//return: 05-quiz: {…}, 04-guided-exercises: {…}, 01-variables: {…}, 02-self-learning-MDN: {…}, 03-comments: {…}, …}
 
           Object.keys(partsNameUnit).forEach((nameParts) => {
             const part = partsNameUnit[nameParts]; // return:{duration: 15, completed: 1, type: "read", completedAt: "2018-04-02T06:25:57.010Z"}
@@ -54,14 +54,15 @@ window.computeUsersStats = (users, progress, courses) => {
       }
     });
 
-    const exercisesPercent = Math.round((exercisesCompleted / exercisesTotal) * 100)
-    const readsPercent = Math.round((readsCompleted / readsTotal) * 100);
-    const quizzesPercent = Math.round((quizzesCompleted / quizzesTotal) * 100);
+    const exercisesPercent = isNaN(Math.round((exercisesCompleted / exercisesTotal) * 100))? 0 : Math.round((exercisesCompleted / exercisesTotal) * 100);
+    const readsPercent =  isNaN(Math.round((readsCompleted / readsTotal) * 100))? 0 : Math.round((readsCompleted / readsTotal) * 100);
+    const quizzesPercent = isNaN(Math.round((quizzesCompleted / quizzesTotal) * 100))? 0: Math.round((quizzesCompleted / quizzesTotal) * 100);
+    percent = isNaN(Math.round(percent)) ? 0 : Math.round(percent);
 
     const usersWithStats = {
       stats: {
         name: student.name.toUpperCase(),
-        percent: isNaN(Math.round(percent)) ? 0 : Math.round(percent),
+        percent: percent,
         exercises: {
           total: exercisesTotal,
           completed: exercisesCompleted,
@@ -89,20 +90,16 @@ window.computeUsersStats = (users, progress, courses) => {
 window.sortUsers = (users, orderBy, orderDirection) => {
   //ordenando según nombre
   let userSort;
-  if (orderDirection ==='ASC'){
-    if (orderBy === 'Estudiante') {
-      userSort = users.sort((a ,b) => {
-        return a.name-b.name;
-      });
-    }
+
+  if(orderDirection ==='ASC' && orderBy === 'Estudiante'){
+    userSort = users.sort((a,b)=> (a.stats.name.toLowerCase()>b.stats.name.toLowerCase()? 1: -1));
+    return userSort
   }
-  if (orderDirection ==='DESC'){
-    if (orderBy === 'Estudiante') {
-      userSort = users.sort((a ,b) => {
-        return b.name-a.name;
-      });
-    }
-  }
+
+  if(orderDirection ==='DESC' && orderBy === 'Estudiante'){
+    userSort = users.sort((a,b)=>(a.stats.name.toLowerCase()<b.stats.name.toLowerCase())? 1: -1)
+    return userSort
+  } 
 
 //ordenando según completitud general
   if (orderDirection ==='ASC'){
@@ -184,7 +181,11 @@ window.sortUsers = (users, orderBy, orderDirection) => {
 }
 
 window.filterUsers = (users, search) => {
-return users.filter(user => (user.stats.name.toUpperCase().indexOf(search.toUpperCase()))!== -1)
+let newUser =users.filter((user) => {
+  let userFilter = user.stats.name.toUpperCase().indexOf(search.toUpperCase()) !== -1;
+  return userFilter
+});
+return newUser
 }
 
 window.processCohortData = (options) => {
